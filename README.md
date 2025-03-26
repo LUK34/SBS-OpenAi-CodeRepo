@@ -72,12 +72,12 @@
 
 ## How RAG works in Spring AI ??
 - In Spring AI, RAG typically involves three main components:
-- ** Retrieval (R): **
+- **Retrieval (R):**
 - Pull relevant documents from a vector store (e.g., Pinecone, Redis, Elasticsearch) based on a user’s query.
 - The documents are usually embedded using an embedding model (e.g., OpenAI, Hugging Face).
-- ** Augmentation (A): **
+- **Augmentation (A):**
 - Add (augment) the retrieved documents into the prompt that will be sent to the LLM.
-- ** Generation (G): **
+- **Generation (G):**
 - The LLM uses both the original user query and the retrieved documents to generate a final, context-rich response.
 
 ## Example Use Case in Spring AI:
@@ -90,7 +90,7 @@
 - 5. Return an accurate, document-based answer.
 
 ## How to implement api keys in run configuration without embedding them in application.properties file??
-- ** Select Project -> Run as -> Run configuration -> Java Application -> Starter -> Enviroment -> Set the Enviroment variable -> Key, Value pair **
+- **Select Project -> Run as -> Run configuration -> Java Application -> Starter -> Enviroment -> Set the Enviroment variable -> Key, Value pair**
 - OPENAI_API_KEY -> enter the value in value field.
 - OPENAI_PROJECT_ID -> enter the value in value field.
 
@@ -99,19 +99,19 @@
 - designed to transform the raw outputs from AI models into structured Java objects. 
 - These converters facilitate the handling of AI responses by converting them into formats like Java Beans, Maps, 
 - or Lists. The primary converters include
-- ** 1.BeanOutputConverter<T> **
+- **1.BeanOutputConverter<T>**
 - **Description:** 
 - Converts AI model outputs into instances of a specified Java class (POJO).
 - **Usage:** 
 - Ideal for mapping structured AI responses directly to Java objects.
-- ** 2.MapOutputConverter **
+- **2.MapOutputConverter**
 - **Description:** 
 - Transforms AI model outputs into a Map<String, Object>.
 - **Usage:** 
 - Useful when the AI response is a JSON object that can be represented as a map.
-- ** 3.ListOutputConverter **
-- ** Description:**
+- **3.ListOutputConverter**
+- **Description:**
 - Converts AI model outputs into a List<String>.​
-- ** Usage:**
+- **Usage:**
 - Suitable for responses that are arrays or lists.
 

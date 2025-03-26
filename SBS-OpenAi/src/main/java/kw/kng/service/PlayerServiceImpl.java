@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import kw.kng.model.AchievementDto;
 import kw.kng.model.PlayerDto;
 
 @Service
@@ -30,6 +32,9 @@ public class PlayerServiceImpl implements PlayerService
 			
 		@Value("classpath:/prompts/sports-person.st")
 		private Resource sprsPersonPrompt;
+		
+		@Value("classpath:/prompts/sports-person-achievement.st")
+		private Resource sprsPersonAchievementPrompt;
 		
 	//-------------------------------------------------------------------------------	
 
@@ -51,6 +56,21 @@ public class PlayerServiceImpl implements PlayerService
 				.getResult();
 			
 			return converter.convert(result.getOutput().getText());
+		}
+		
+		@Override
+		public List<AchievementDto> getAchievements(@RequestParam String name)
+		{
+			
+			PromptTemplate template= new PromptTemplate(sprsPersonAchievementPrompt);
+			Prompt prompt = template.create(Map.of("player",name));
+			
+			return chatClient
+					.prompt(prompt)
+					.call()
+					.entity(new ParameterizedTypeReference<List<AchievementDto>>() {});
+					
+			
 		}
 		
 		

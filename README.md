@@ -99,19 +99,35 @@
 - designed to transform the raw outputs from AI models into structured Java objects. 
 - These converters facilitate the handling of AI responses by converting them into formats like Java Beans, Maps, 
 - or Lists. The primary converters include
+
 - **1.BeanOutputConverter<T>**
 - **Description:** 
 - Converts AI model outputs into instances of a specified Java class (POJO).
 - **Usage:** 
 - Ideal for mapping structured AI responses directly to Java objects.
+
 - **2.MapOutputConverter**
 - **Description:** 
 - Transforms AI model outputs into a Map<String, Object>.
 - **Usage:** 
 - Useful when the AI response is a JSON object that can be represented as a map.
+
 - **3.ListOutputConverter**
 - **Description:**
 - Converts AI model outputs into a List<String>.​
 - **Usage:**
 - Suitable for responses that are arrays or lists.
 
+
+
+- .withN(imgN)	
+- Number of images to generate (e.g., 1, 2)
+
+- .withWidth(imgWidth)	
+- Width of the generated image (e.g., 512, 1024)
+
+- .withHeight(imgHeight)	
+- Height of the generated image
+
+- .withQuality(imgQuality)
+- Quality setting (hd or standard) depending on the model capabilities

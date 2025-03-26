@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import kw.kng.model.AchievementDto;
 import kw.kng.model.PlayerDto;
 import kw.kng.service.PlayerService;
 
@@ -27,6 +28,13 @@ public class PlayerController
 	{
 		return ps.getPlayerAchievement(name);
 	}
+	
+	@GetMapping("/achievements")
+	public List<AchievementDto> getPlayerAchievements(@RequestParam String name)
+	{
+		return ps.getAchievements(name);
+	}
+	
 	
 	
 }

@@ -1,5 +1,9 @@
 package kw.kng.controller;
 
+import java.util.Map;
+
+import org.springframework.ai.chat.prompt.Prompt;
+import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,6 +41,19 @@ public class OpenAiController
 	public String promptChatResponse(@RequestParam String message)
 	{
 		return os.promptChatResponse(message);
+	}
+	
+	
+	@GetMapping("/celeb")
+	public String getCelebDetails(@RequestParam String name)
+	{
+		return os.celebDetails(name);
+	}
+	
+	@GetMapping("/sports")
+	public String getSportsDetail(@RequestParam String name)
+	{
+		return os.sportsDetails(name);
 	}
 	
 	
